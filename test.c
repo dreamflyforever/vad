@@ -17,6 +17,7 @@ int main(int argc,char* argv[])
 	int rc = 1;
 	char *buffer;
 	int i;
+	/*frames = 16k * 2B  * t/ 1000, t = 7.8ms*/
 	int frames = FRAME_LEN;
 
 	/*for vad*/
@@ -40,7 +41,7 @@ int main(int argc,char* argv[])
 	int in_fd = open(argv[1], O_RDONLY, 0);
 	/*wav header 44 byte*/
 	lseek(in_fd, 4, SEEK_SET);
-
+	int len = 0;
 	while (rc > 0) {
 		rc = read(in_fd, buffer, frames);
 
@@ -54,21 +55,32 @@ int main(int argc,char* argv[])
 				indata[i] = indata[i]-65536;
 		}
 		vad = wb_vad(vadstate, indata);
-		/*check the vad flag, 1: noise, other: silent */
-		if(vad == 1)
+		/*check the vad flag, 1: speech, other: noise */
+		if(vad == 1) {
+			len = 0;
 			recording = 1;
-		else
+		} else {
 			recording = 0;
-		if (recording ==1 && fp == NULL) {
-			sprintf(name,"%s.%d.pcm", out_file, count);
-			fp=fopen(name, "wb");   
+			/*1 second delay*/
+			if (len < 120) {
+				len++;
+				recording = 1;
+				goto r;
+			} else {
+				len = 0;
+			}
 		}
-		if (recording == 0 && fp != NULL) { 
+
+		if (recording == 1 && fp == NULL) {
+			sprintf(name, "%s.%d.pcm", out_file, count);
+			fp=fopen(name, "wb");
+		}
+		if (recording == 0 && fp != NULL) {
 			fclose(fp);
 			fp = NULL;
 			count++;
 		}
-		if (fp != NULL && recording == 1)
+r:		if (fp != NULL && recording == 1)
 			fwrite(outdata, 1, FRAME_LEN, fp);
 		if (fp_all != NULL)
 			fwrite(outdata, 1, FRAME_LEN, fp_all);
