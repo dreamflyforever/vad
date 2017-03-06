@@ -15,7 +15,6 @@ int main(int argc,char* argv[])
 
 	char* out_file = argv[2];
 	int rc = 1;
-	int size;
 	char *buffer;
 	int i;
 	int frames = FRAME_LEN;
@@ -30,9 +29,8 @@ int main(int argc,char* argv[])
 	int count = 0;
 	FILE *fp = NULL;
 	FILE *fp_all = NULL;
-	/*XXX:2 bytes/sample, 2 channels*/
-	size = frames * 4; 
-	buffer = (char*)malloc(size);
+	/* two bytes*/
+	buffer = (char*)malloc(frames * 2);
 
 	/*vad init*/
 	wb_vad_init(&(vadstate));
@@ -49,7 +47,7 @@ int main(int argc,char* argv[])
 		for(i = 0; i< frames; i++) {
 			indata[i]=0;
 			temp = 0;
-			memcpy(&temp,buffer+4*i,2);
+			memcpy(&temp, buffer + 2 * i, 2);
 			indata[i]=(float)temp;
 			outdata[i]=temp;
 			if (indata[i] > 65535/2)
