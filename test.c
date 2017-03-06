@@ -48,7 +48,7 @@ int main(int argc,char* argv[])
 			indata[i]=0;
 			temp = 0;
 			memcpy(&temp, buffer + 2 * i, 2);
-			indata[i]=(float)temp;
+			indata[i]=(short)temp;
 			outdata[i]=temp;
 			if (indata[i] > 65535/2)
 				indata[i] = indata[i]-65536;
@@ -69,9 +69,9 @@ int main(int argc,char* argv[])
 			count++;
 		}
 		if (fp != NULL && recording == 1)
-			fwrite(outdata, 2, FRAME_LEN, fp);
+			fwrite(outdata, 1, FRAME_LEN, fp);
 		if (fp_all != NULL)
-			fwrite(outdata, 2, FRAME_LEN, fp_all);
+			fwrite(outdata, 1, FRAME_LEN, fp_all);
 	}
 	close(in_fd);
 	fcloseall();
