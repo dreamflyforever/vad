@@ -85,6 +85,8 @@ r:		if (fp != NULL && recording == 1)
 		if (fp_all != NULL)
 			fwrite(outdata, 1, FRAME_LEN, fp_all);
 	}
+	wb_vad_exit(&vadstate);
+	free(buffer);
 	close(in_fd);
 	fcloseall();
 }
