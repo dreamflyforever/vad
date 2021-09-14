@@ -78,7 +78,8 @@
 #define NOISE_INIT 150          /* initial */ 
  
 /* Thresholds for signal power (now calculated on 2 frames) */ 
-#define VAD_POW_LOW 30000.0f    /* If input power is lower than this, VAD is set to 0 */ 
+//#define VAD_POW_LOW 30000.0f    /* If input power is lower than this, VAD is set to 0 */ 
+#define VAD_POW_LOW 1999698217.0f    /* If input power is lower than this, VAD is set to 0 */ 
 #define POW_PITCH_TONE_THR 686080.0f    /* If input power is lower, pitch */ 
                                             /* detection is ignored */ 
  
