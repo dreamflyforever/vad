@@ -4,6 +4,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <string.h>
+#include <unistd.h>
 #include "wb_vad.h"
 
 int main(int argc,char* argv[])   
@@ -62,11 +63,12 @@ int main(int argc,char* argv[])
 		} else {
 			recording = 0;
 			/*1 second delay*/
-			if (len < 120) {
+			if (len < 80) {
 				len++;
 				recording = 1;
-				goto r;
+				goto out;
 			} else {
+				printf("detect the slient\n");
 				len = 0;
 			}
 		}
@@ -75,12 +77,13 @@ int main(int argc,char* argv[])
 			sprintf(name, "%s.%d.pcm", out_file, count);
 			fp=fopen(name, "wb");
 		}
+
 		if (recording == 0 && fp != NULL) {
 			fclose(fp);
 			fp = NULL;
 			count++;
 		}
-r:		if (fp != NULL && recording == 1)
+out:		if (fp != NULL && recording == 1)
 			fwrite(outdata, 1, FRAME_LEN, fp);
 		if (fp_all != NULL)
 			fwrite(outdata, 1, FRAME_LEN, fp_all);
@@ -88,5 +91,7 @@ r:		if (fp != NULL && recording == 1)
 	wb_vad_exit(&vadstate);
 	free(buffer);
 	close(in_fd);
+	//fclose(fp_all);
+	//fclose(fp);
 	fcloseall();
 }
