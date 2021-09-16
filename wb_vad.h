@@ -42,6 +42,7 @@ typedef struct
 	float prevLevel[COMPLEN];
 	float millisecond; /*detect the silent for the speech*/
 	VAD_CB cb;
+	void *arg;
 } VadVars; 
  
 /* 

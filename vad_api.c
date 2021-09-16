@@ -1,3 +1,4 @@
+#include <string.h>
 #include "vad_api.h"
 
 typedef int (*VAD_CB)(void *arg, int flag);
@@ -19,6 +20,7 @@ int vad_init(vad_str **entity, VAD_CB cb, void *arg)
 		goto out;
 	}
 	(*entity)->cb = cb;
+	(*entity)->arg = arg;
 out:
 	return retval;
 }
@@ -68,6 +70,7 @@ int vad_feed(vad_str *entity, char *buf, int len)
 		size = 0;
 	} else {
 		if (size < entity->millisecond) {
+			vad_log("size %d\n", size);
 			size++;
 		} else {
 			if (entity->cb == NULL) {
@@ -76,7 +79,7 @@ int vad_feed(vad_str *entity, char *buf, int len)
 				goto out;
 			}
 			/*user callback*/
-			entity->cb(NULL, PASS);
+			entity->cb(entity->arg, PASS);
 			size = 0;
 		}
 	}
