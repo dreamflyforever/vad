@@ -451,7 +451,7 @@
       }   
       /* primary vad decsion made */   
       /* check if the input power (pow_sum) is lower than a threshold" */  
-      printf("power sum=%ld\n", (long int)pow_sum);
+      //printf("power sum=%ld\n", (long int)pow_sum);
       if (pow_sum < VAD_POW_LOW)   
       {   
         low_power_flag = 1;   
