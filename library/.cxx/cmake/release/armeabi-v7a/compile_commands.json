@@ -1,0 +1,19 @@
+[
+{
+  "directory": "/home/jim/workspace/aiot/vad/library/.cxx/cmake/release/armeabi-v7a",
+  "command": "/home/jim/Android/Sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=armv7-none-linux-androideabi16 --gcc-toolchain=/home/jim/Android/Sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/jim/Android/Sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/linux-x86_64/sysroot  -Dvad_EXPORTS -I/home/jim/workspace/aiot/vad/library/src/main/cpp/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security   -Oz -DNDEBUG  -fPIC   -o CMakeFiles/vad.dir/native-lib.cpp.o -c /home/jim/workspace/aiot/vad/library/src/main/cpp/native-lib.cpp",
+  "file": "/home/jim/workspace/aiot/vad/library/src/main/cpp/native-lib.cpp"
+},
+
+{
+  "directory": "/home/jim/workspace/aiot/vad/library/.cxx/cmake/release/armeabi-v7a",
+  "command": "/home/jim/Android/Sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=armv7-none-linux-androideabi16 --gcc-toolchain=/home/jim/Android/Sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/jim/Android/Sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/linux-x86_64/sysroot -Dvad_EXPORTS -I/home/jim/workspace/aiot/vad/library/src/main/cpp/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -Oz -DNDEBUG  -fPIC   -o CMakeFiles/vad.dir/wb_vad.c.o   -c /home/jim/workspace/aiot/vad/library/src/main/cpp/wb_vad.c",
+  "file": "/home/jim/workspace/aiot/vad/library/src/main/cpp/wb_vad.c"
+},
+
+{
+  "directory": "/home/jim/workspace/aiot/vad/library/.cxx/cmake/release/armeabi-v7a",
+  "command": "/home/jim/Android/Sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/linux-x86_64/bin/clang --target=armv7-none-linux-androideabi16 --gcc-toolchain=/home/jim/Android/Sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/jim/Android/Sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/linux-x86_64/sysroot -Dvad_EXPORTS -I/home/jim/workspace/aiot/vad/library/src/main/cpp/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -Oz -DNDEBUG  -fPIC   -o CMakeFiles/vad.dir/vad_api.c.o   -c /home/jim/workspace/aiot/vad/library/src/main/cpp/vad_api.c",
+  "file": "/home/jim/workspace/aiot/vad/library/src/main/cpp/vad_api.c"
+}
+]

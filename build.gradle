@@ -1,0 +1,45 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext.kotlin_version = "1.4.31"
+
+    ext.maven_rep_version = 'snapshot'
+    ext.repository_version = "http://maven.pudu.work/repository/maven-${maven_rep_version}s/"
+    ext.getusbdev_version = "1.0.2-SNAPSHOT"
+
+    repositories {
+        maven {
+            url 'http://maven.pudu.work/repository/maven-public/'
+            credentials {
+                username 'dev'
+                password 'Pd123456'
+            }
+        }
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.1.1"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        maven {
+            url 'http://maven.pudu.work/repository/maven-public/'
+            credentials {
+                username 'dev'
+                password 'Pd123456'
+            }
+        }
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
