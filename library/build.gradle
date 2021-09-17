@@ -66,8 +66,8 @@ uploadArchives{
         repository(url: uri(repository_version)) {
             authentication(userName: 'dev', password: 'Pd123456')
         }
-        pom.groupId = "com.pudutech.getusbdev.lib"// 唯一标识（通常为模块包名，也可以任意）
-        pom.artifactId = "getusbdev" // 项目名称（通常为类库模块名称，也可以任意）
-        pom.version = "$getusbdev_version" // 版本号
+        pom.groupId = "com.pudutech.vad.lib"// 唯一标识（通常为模块包名，也可以任意）
+        pom.artifactId = "vad" // 项目名称（通常为类库模块名称，也可以任意）
+        pom.version = "$vad_version" // 版本号
     }
 }
