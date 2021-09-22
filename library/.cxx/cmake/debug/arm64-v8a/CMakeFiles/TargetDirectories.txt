@@ -1,3 +1,0 @@
-/home/jim/workspace/aiot/vad/library/.cxx/cmake/debug/arm64-v8a/CMakeFiles/rebuild_cache.dir
-/home/jim/workspace/aiot/vad/library/.cxx/cmake/debug/arm64-v8a/CMakeFiles/edit_cache.dir
-/home/jim/workspace/aiot/vad/library/.cxx/cmake/debug/arm64-v8a/CMakeFiles/vad.dir

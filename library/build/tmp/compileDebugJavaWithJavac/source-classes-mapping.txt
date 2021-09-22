@@ -1,2 +1,0 @@
-com/pudutech/lib/BuildConfig.java
- com.pudutech.lib.BuildConfig

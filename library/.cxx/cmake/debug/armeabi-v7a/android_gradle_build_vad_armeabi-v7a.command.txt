@@ -1,7 +1,0 @@
-Executable : /home/jim/Android/Sdk/cmake/3.10.2.4988404/bin/ninja
-arguments : 
--C
-/home/jim/workspace/aiot/vad/library/.cxx/cmake/debug/armeabi-v7a
-vad
-jvmArgs : 
-
