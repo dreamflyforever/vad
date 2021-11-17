@@ -42,6 +42,8 @@ int vad_feed(vad_str *entity, char *buf, int len)
 {
 	/*frames = 16k * 2B  * t/ 1000, t = 7.8ms*/
 	int frames = FRAME_LEN;
+	char cp[2048] = {0};
+	memcpy(cp, buf, len);
 	static int size;
 	int i;
 	int temp;
@@ -59,7 +61,7 @@ int vad_feed(vad_str *entity, char *buf, int len)
 	for(i = 0; i< len; i++) {
 		indata[i]=0;
 		temp = 0;
-		memcpy(&temp, buf + 2 * i, 2);
+		memcpy(&temp, cp + 2 * i, 2);
 		indata[i]=(short)temp;
 		outdata[i]=temp;
 		if (indata[i] > 65535/2)
