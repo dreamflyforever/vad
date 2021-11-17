@@ -2,7 +2,7 @@
 #define wb_vad_c_h 
  
 /* */ 
-#define FRAME_LEN 256           /* Length (samples) of the input frame */ 
+#define FRAME_LEN 1024           /* Length (samples) of the input frame */ 
 #define COMPLEN 12              /* Number of sub-bands used by VAD */ 
  
 #define UNIRSHFT 7              /* = log2(MAX_16/UNITY), UNITY = 256 */ 
